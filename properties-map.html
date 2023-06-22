@@ -20,9 +20,15 @@
 	<link rel="stylesheet" href="css/aos.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://kit.fontawesome.com/5694cf4c5b.js" crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
-	<title>Avanzada 3</title>
+	<!-- MAPBOX CSS -->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+	<!--FIN MAPBOX CSS -->
+
+	<title>Propiedades</title>
 </head>
 <body>
 
@@ -40,16 +46,16 @@
 		<div class="container">
 			<div class="menu-bg-wrap">
 				<div class="site-navigation">
-					<a href="index.html" class="logo m-0 float-start  px-4" ><b>LOGO</b></a>
+					<a href="index.html" class="logo m-0 float-start  px-4"><h1 style="font-size: 60px;font-weight: 900; color: #fff;">LOGO</h1></a>
 
 					<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-						<li class=""><a href="about.html">NOSOTROS</a></li>
-						<li class=""><a href="properties.html">PROPIEDADES</a></li>
+						<li ><a href="about.html">NOSOTROS</a></li>
+						<li ><a href="properties.html">PROPIEDADES</a></li>
 						<li><a href="services.html">SERVICIOS</a></li>
 						<li><a href="contact.html">CONTACTO</a></li>
 						<li><a href="">PÚBLICA GRATIS</a></li>
 
-						<li><a href="intranet.html">INTRANET</a></li>
+						<li><a href="http://190.114.255.247:195/">INTRANET</a></li>
 					</ul>
 
 					<a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
@@ -63,76 +69,69 @@
 
 <!------------------------------- Img    +   Filtro ---------------------------------------------------------->	
 
-	<div class="hero pt-5" style="background-image:url(images/hero_bg_1.jpg) ;">
-
+	<div class="hero pt-5" style="background-image:url(images/hero_bg_1.jpg); background-position: center center;background-repeat: no-repeat;background-size: cover;">
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-12 text-center ">
-
-					<form action="#" class="narrow-w form-search d-flex align-items-stretch mb-3 formfilter" data-aos="fade-up" data-aos-delay="200">
-						
+				<div class="col-lg-12 text-center">
+					<form class="narrow-w form-search d-flex align-items-stretch mb-3 " data-aos="fade-up" data-aos-delay="200">				
 						<div class="row p-2 p-md-5 text-center pt-5 cuadro-bl mt-4" style="--bs-gutter-x: 0;">
-
 							<div class="row row-filtro"  style="--bs-gutter-x: 0;">
-								<div class="col-4">
-									<input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-									<label class="form-check-label " for="flexRadioDefault1">
-									Venta
-									</label>
-								</div>
-								<div class="col-4">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-									<label class="form-check-label" for="flexRadioDefault2">
-									Arriendo
-									</label>
-								</div>
-								<div class="col-4">
-									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-									<label class="form-check-label" for="flexRadioDefault3">
-									Canje
-									</label>
-								</div>
+								<ul class="type-operation-style">
+									<li class="mb-2">
+										<input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="venta">
+										<label class="form-check-label " for="flexRadioDefault1">
+										Venta
+										</label>
+									</li>
+									<li class="mb-2">
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="arriendo">
+										<label class="form-check-label" for="flexRadioDefault2">
+										Arriendo
+										</label>
+									</li>
+									<li class="mb-2">
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="arriendo_temporal">
+										<label class="form-check-label" for="flexRadioDefault3">
+										Arriendo temporal
+										</label>
+									</li>
+								</ul>
 							</div>
-
-		
 							<div class="row row-bl"  style="--bs-gutter-x: 0;" >
-								<div class="col-lg-6 p-1">
-									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-										<option selected>Tipo inmueble</option>
-										<option value="1">Casa</option>
-										<option value="2">Terreno</option>
-										<option value="3">Departamento</option>
+								<div class="col-lg-12 p-1">
+									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="typeOfProperty">
+										<option value="" selected>Tipo inmueble</option>
+										<option value="departamento">Departamento</option>
+										<option value="casa">Casa</option>
+										<option value="parcela">Parcela</option>
+										<option value="bodega">Bodega</option>
+										<option value="terreno">Terreno</option>
+										<option value="estacionamiento">Estacionamiento</option>
+										<option value="industrial">Industrial</option>
+										<option value="agricola">Agricola</option>
+										<option value="local">Local Comercial</option>
+										<option value="oficina">Oficina</option>
+										<option value="sitio">Sitio</option>
+										<option value="Terreno En Construccion">Terreno En Construccion</option>
 									</select>
 								</div>
 								<div class="col-lg-6 p-1">
-									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-										<option selected>Región</option>
-										<option value="1">SI</option>
-										<option value="2">NO</option>
+									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="region">
+										<option value="0" selected>Región</option>
+										
 		
 									</select>
 								</div>
 								<div class="col-lg-6 p-1">
-									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-										<option selected>Comuna</option>
-										<option value="1">RM</option>
-										<option value="2">5ta</option>
-										<option value="3">6ta</option>
+									<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="commune">
+										<option value="" selected>Comuna</option>
 									</select>
 								</div>
 		
 								<!--Precio-->
-								<div class="col-lg-6 p-1">
+								<div class="col-lg-12 p-1">
 									<div class="row">
-										<div class="col-6">
-											<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-												<option selected>Precio</option>
-												<option value="1">0000-2000 UF</option>
-												<option value="2">2001-4000 UF</option>
-												<option value="3">4001-6000 UF</option>
-											</select>
-										</div>
-										<div class="col-6  pt-1" style="font-size: 15px; ">
+										<div class="col-6 pt-1 mt-4" style="font-size: 15px; ">
 											<div class="form-check form-check-inline m-0   pt-1" >
 												<input class="form-check-input" type="radio" name="inlineRadioOptions" style="border: 1px solid black;" id="inlineRadio1" value="option1">
 												<label class="form-check-label" for="inlineRadio1">UF</label>
@@ -142,87 +141,69 @@
 												<label class="form-check-label" for="inlineRadio2">CLP</label>
 											</div>
 										</div>
+										<div class="col-3">
+											<label class="form-label" for="">Desde</label>
+											<input class="form-control-origin" type="number" name="" id="min_price" value="Desde">	
+										</div>
+										<div class="col-3">
+											<label class="form-label" for="">Hasta</label>
+											<input class="form-control-origin" type="number" name="" id="max_price" value="Hasta">						
+										</div>
 									</div>
-
-
-
 								</div>
-
-								<div class="row" style="--bs-gutter-x: 0;">
+	
+								<div class="row accordion" style="--bs-gutter-x: 0;" id="accordionExample">
+									<div class="col-6 p-2" style="padding-left: 15px !important;" >
+										<div class="row text-start " id="headingOne">
+											<div class="col-12" style="padding-left: 1.5rem;padding-right: 1.5rem;"  >		
+												<button class="btn btn-mas" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													Busqueda avanzada
+												</button>
+											</div>
+										</div>
+									</div>
+								
 									<div class="col-6 p-2">
 										<div class="row text-end " style="--bs-gutter-x: 0;">
 											<div class="col-12" style="margin-top: 10px; padding-left: 1.5rem;padding-right: 1.5rem;" >
-												<button type="submit" class="" 
-												style="border-radius: 20px; width: 100px; border: 1px solid black; background-color: #4d4d4d;color: white;">Buscar</button>
+												<button type="button" class="btn btn-buscar"  id="buscar2"
+												>Buscar</button>	
 											</div>
 										</div>
 						
 									</div>
-									<div class="col-6 p-2" style="padding-left: 15px !important;">
-										<div class="row text-start ">
-											<div class="col-12" style="margin-top: 10px; padding-left: 1.5rem;padding-right: 1.5rem;">
-												
-												<button href="#collapseExample"  data-bs-toggle="collapse" aria-expanded="false" 
-												aria-controls="collapseExample"   
-												style="border-radius: 20px; width: 100px; border: 1px solid black; background-color: #4d4d4d;color: white;">Mas ...</button>
-
-
-
-											</div>
+									<div class="row text-center row-import collapse"  id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+										<div class="col-lg-6 p-1">
+											<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="bedrooms">
+												<option value="" selected>Habitaciones</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
 										</div>
+										<div class="col-lg-6 p-1">
+											<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="bathrooms">
+												<option value="" selected>Baños</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+										</div>
+										<div class="col-lg-12 p-1">
+											<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example" id="covered_parking_lots">
+												<option value="" selected>Estacionamientos</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+										</div>	
 									</div>
 								</div>
-
-
-								<div class="row collapse text-center row-import" id="collapseExample">
-
-									<div class="col-lg-6 p-1">
-										<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-											<option selected>Habitaciones</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="3">4</option>
-										</select>
-									</div>
-									<div class="col-lg-6 p-1">
-										<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-											<option selected>Baños</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-										</select>
-									</div>
-			
-									<div class="col-lg-6 p-1">
-										<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-											<option selected>Estacionamientos</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-										</select>
-									</div>
-			
-									<div class="col-lg-6 p-1">
-										<select class="form-select" style="border-radius: 19px;border: 1px solid black; " aria-label="Default select example">
-											<option selected>Superficie m2</option>
-											<option value="1">10 - 20</option>
-											<option value="2">20 - 30</option>
-											<option value="3">40 - 50</option>
-										</select>
-									</div>
-
-
-								</div>
-
 							</div>
-
-
 						</div>
-
-
-
-
 					</form>
 				</div>
 			</div>
@@ -233,7 +214,7 @@
 
 <!--                                       Botones Grilla - Carta - Mapa             -->
 
-	<div class="section px-0 px-md-5" style="padding-bottom: 0; " data-aos="fade-up"><!-- margin: 0px 6.7rem; -->
+	<div class="section px-0 px-md-5" style="padding-bottom: 0;" data-aos="fade-up">
 		<div class="row align-items-center py-1 ">
 			<div class="col-12 float-start " style="padding-left: 10%;">
 				<h1 style="font-size: 50px;font-weight: bold;color: #4d4d4d;">PROPIEDADES</h1>
@@ -244,23 +225,22 @@
 
 			<div class="col-lg-12 grilla-custom " style="margin-top: 20px ;">
 				<div class="custom-pagination ">
-					<a href="properties.html"class="active "><img src="images/grilla-icono.svg" alt=""></a>
-					<a href="properties-map.html" ><img src="images/mapa-icono.svg" alt=""></a>
+					<a href="properties.html"><img src="images/grilla-icono.svg" alt=""></a>
+					<a href="properties-map.html" class="active" ><img src="images/mapa-icono.svg" alt=""></a>
 
 				</div>
 			</div>
-			<div class="col-lg-6 text-start" style="padding-top: 10px ;">
-				Paginas encontradas 321
+			<div class="col-lg-6 text-start" style="padding-top: 10px ;" id="totalItems">
+				
 			</div>
 			<div class="col-lg-6 text-start " style="padding-top: 10px ;">
 				<div class="row align-items-center" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
 					<div class="col-4 text-center">Orden por:</div>
 					<div class="col-8 text-center">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>Precio mayor a menor</option>
-							<option value="1">Precio menor a mayor</option>
-
-			
+						<select id="FilterPrice" class="form-select border">
+							<option disabled selected>Seleccione una opción</option>
+							<option value="MenorMayor">Precio de menor a mayor</option>
+							<option value="MayorMenor">Precio de mayor a menor</option>
 						</select>
 					</div>
 				</div>
@@ -271,254 +251,41 @@
 
 
 <!-----------------------------------------Propiedades----------------------------------------------------->
-	<div class="section section-properties"   data-aos="fade-up"><!-- style="margin: 0px 100px 0px 100px;" -->
+	<div class="section section-properties-map"   data-aos="fade-up">
 		<div class="container">
 			<div class="row">
-                <div class="col-11 col-lg-3">
-                    <div class="row" style="height: 500px;overflow: hidden;overflow-y: scroll;">
-                        <div class="col-12">
-							<div class="property-item mb-5">
-
-								<a href="property-single.html" class="img">
-									<img src="images/img_1.jpg" alt="Image" class="img-fluid">
-								</a>
-
-								<div class="property-content text-start" style="padding: 10px 10px 10px 10px;">
-
-									<h3 style="font-weight: bold; padding-left:15px; margin-bottom: 5px;">TERRAMAR</h3>
-
-									<div>
-										<p style="font-size: 15px; padding-left:15px; margin-bottom: 5px;">
-											UF 3523 - CLP 123.456.789
-										</p>
-										<p class="text-start" style="font-size: 15px; padding-left:15px; margin-bottom: 5px;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-										
-										<div class="row p-3 text-center">
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>M2</h5></div>
-													<div class="col-12">77</div>
-
-												</div>
-													
-											</div>
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>Hab</h5></div>
-													<div class="col-12">3</div>
-
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="row">
-													<div class="col-12"><h5>Baño</h5></div>
-													<div class="col-12">2</div>
-												</div>
-											</div>
-										</div>
-										<div class="text-center">
-											<p>CASA / ARRIENDO</p>
-										</div>
-
-
-									</div>
-								</div>
-							</div> <!-- .item -->
-                        </div>
-                        <div class="col-12">
-							<div class="property-item mb-5">
-
-								<a href="property-single.html" class="img">
-									<img src="images/img_2.jpg" alt="Image" class="img-fluid">
-								</a>
-
-								<div class="property-content text-start" style="padding: 10px 10px 10px 10px;">
-
-									<h3 style="font-weight: bold; padding-left:15px; margin-bottom: 5px;">TERRAMAR</h3>
-
-									<div>
-										<p style="font-size: 15px; padding-left:15px; margin-bottom: 5px;">
-											UF 3523 - CLP 123.456.789
-										</p>
-										<p class="text-start" style="font-size: 15px; padding-left:15px; margin-bottom: 5px;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-										
-										<div class="row p-3 text-center">
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>M2</h5></div>
-													<div class="col-12">77</div>
-
-												</div>
-													
-											</div>
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>Hab</h5></div>
-													<div class="col-12">3</div>
-
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="row">
-													<div class="col-12"><h5>Baño</h5></div>
-													<div class="col-12">2</div>
-												</div>
-											</div>
-										</div>
-										<div class="text-center">
-											<p>CASA / ARRIENDO</p>
-										</div>
-
-
-									</div>
-								</div>
-							</div> <!-- .item -->
-                        </div>
-						<div class="col-12">
-							<div class="property-item mb-5">
-
-								<a href="property-single.html" class="img">
-									<img src="images/img_3.jpg" alt="Image" class="img-fluid">
-								</a>
-
-								<div class="property-content text-start" style="padding: 10px 10px 10px 10px;">
-
-									<h3 style="font-weight: bold; padding-left:15px; margin-bottom: 5px;">TERRAMAR</h3>
-
-									<div>
-										<p style="font-size: 15px; padding-left:15px; margin-bottom: 5px;">
-											UF 3523 - CLP 123.456.789
-										</p>
-										<p class="text-start" style="font-size: 15px; padding-left:15px; margin-bottom: 5px;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-										
-										<div class="row p-3 text-center">
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>M2</h5></div>
-													<div class="col-12">77</div>
-
-												</div>
-													
-											</div>
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>Hab</h5></div>
-													<div class="col-12">3</div>
-
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="row">
-													<div class="col-12"><h5>Baño</h5></div>
-													<div class="col-12">2</div>
-												</div>
-											</div>
-										</div>
-										<div class="text-center">
-											<p>CASA / ARRIENDO</p>
-										</div>
-
-
-									</div>
-								</div>
-							</div> <!-- .item -->
-                        </div>
-						<div class="col-12">
-							<div class="property-item mb-5">
-
-								<a href="property-single.html" class="img">
-									<img src="images/img_5.jpg" alt="Image" class="img-fluid">
-								</a>
-
-								<div class="property-content text-start" style="padding: 10px 10px 10px 10px;">
-
-									<h3 style="font-weight: bold; padding-left:15px; margin-bottom: 5px;">TERRAMAR</h3>
-
-									<div>
-										<p style="font-size: 15px; padding-left:15px; margin-bottom: 5px;">
-											UF 3523 - CLP 123.456.789
-										</p>
-										<p class="text-start" style="font-size: 15px; padding-left:15px; margin-bottom: 5px;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-										
-										<div class="row p-3 text-center">
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>M2</h5></div>
-													<div class="col-12">77</div>
-
-												</div>
-													
-											</div>
-											<div class="col-4 hr-l">
-												<div class="row ">
-													<div class="col-12"><h5>Hab</h5></div>
-													<div class="col-12">3</div>
-
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="row">
-													<div class="col-12"><h5>Baño</h5></div>
-													<div class="col-12">2</div>
-												</div>
-											</div>
-										</div>
-										<div class="text-center">
-											<p>CASA / ARRIENDO</p>
-										</div>
-
-
-									</div>
-								</div>
-							</div> <!-- .item -->
-                        </div>
-
-                    </div>                    
-                </div>
-                <div class="col-11 col-lg-9 ">
-					<div class="row" style="height: 100%;">
-						<div class="col-12">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47838.47666270479!2d-72.98312340260668!3d-41.46298026365027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96183a4d6920f407%3A0x86a3f15a79a5c9df!2sPuerto%20Montt%2C%20Los%20Lagos!5e0!3m2!1sen!2scl!4v1670264183584!5m2!1sen!2scl" 
-							width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						</div>
-					</div>
-                </div>
-
+				<div class="col-lg-3 col-md-6 col-sm-12" style="height: 500px;overflow: hidden;overflow-y: scroll;" id="card-prop-map">
+			
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 mb-5 mt-4" id="div-map-section">
+					<div id="map" style="margin-bottom: 100px;margin-top: 20px;"></div>
+				</div>
 			</div>
-
 		</div>
 	</div>
-
-
-
-
-
-
-
 <!------------------------Footer------------------------------------------->
-
 <div class="site-footer">
-	<div class="container">
-		
+	<div class="container">	
 		<div class="row">
 			<div class="col-lg-2 text-center pt-4">
-				<a href="index.html"><b><h1 style="font-size: 80px;font-weight: 900; color: #333;">LOGO</h1></b></a>
+				<a href="index.html"><h1 style="font-size: 80px;font-weight: 900; color: #333;">LOGO</h1></a>
 			</div> 
 			<div class="col-lg-7  " style="padding: 0px 77px;">
 					<div class="row pt-2" >
 						<div class="col-12 pt-2">
 							<div class="row  " style="font-size: 14px;" >
 								<h3 style="font-size: 20px;font-weight: 700;text-transform: uppercase;">Menú</h3>
-								<div class="col text-center"><a class="text-black"  style="text-decoration:none ;" href="about.html">NOSOTROS</a></div>
-								<div class="col text-center"><a class="text-black"  style="text-decoration:none ;" href="properties.html">PROPIEDADES</a></div>
-								<div class="col text-center"><a class="text-black"  style="text-decoration:none ;" href="services.html">SERVICIOS</a></div>
-								<div class="col text-center"><a class="text-black"  style="text-decoration:none ;" href="contact.html">CONTACTO</a></div>
-								<div class="col-3 text-center"><a class="text-black"  style="text-decoration:none ;" href="">PÚBLICA GRATIS</a></div>
-								<div class="col text-center"><a class="text-black"  style="text-decoration:none ;" href="intranet.html">INTRANET</a></div>
+								<ul class="list-unstyled float-left links">
+									<li class="mb-2"><a href="#id-nosotros">NOSOTROS</a></li>
+									<li class="mb-2"><a href="properties.html">PROPIEDADES</a></li>
+									<li class="mb-2"><a href="services.html">SERVICIOS</a></li>
+									<li class="mb-2"><a href="contact.html">CONTACTO</a></li>
+									<li class="mb-2"><a href="">PÚBLICA GRATIS</a></li>
+									<li class="mb-2"><a href="http://190.114.255.247:195/">INTRANET</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
-
 					<div class="row pt-3">
 						<h3 style="font-size: 20px;font-weight: 700;text-transform: uppercase;">Descubre</h3>
 						<ul class="list-unstyled social  ">
@@ -526,7 +293,6 @@
 							<li><a href="#"><span class="icon-instagram text-white"></span></a></li>
 							<li><a href="#"><span class="icon-twitter   text-white"></span></a></li>
 							<li><a href="#"><span class="icon-linkedin  text-white"></span></a></li>
-	
 						</ul>
 					</div>
 			</div>
@@ -534,27 +300,17 @@
 				<div class="widget">
 					<h3 class="p-1 pt-2 text-black" style="font-size: 20px;font-weight: 700;text-transform: uppercase;">Contacto</h3>
 					<div class="row pt-2">
-						<div class="col-12">
-							<p class="">
-								<i class="fa fa-map-marker fa-lg  p-1"></i>
-								RentalProp Spa Apoquindo 
-								6410 Of.605
-							</p>
+						<div class="col-12" id="address-ContactInfo">
+						
 						</div>
-						<div class="col-12">
-							<p class="">
-								<i class="fa fa-phone fa-lg  p-1"></i>
-								+56 9 5046 9097
-							</p>
+						<div class="col-12" id="phone-ContactInfo">
+					
 						</div>
-						<div class="col-12">
-							<p class="">
-								<i class="fa fa-envelope fa-lg  p-1"></i>
-								Contacto@rentalprop.cl
-							</p>
+						<div class="col-12" id="email-ContactInfo">
+							
 						</div>
 					</div>
-				</div> <!-- /.widget -->
+				</div> 
 			</div>
 		</div> 
 
@@ -568,7 +324,7 @@
 
 	  </div>
 	</div>
-  </div> <!-- /.container -->
+  </div> 
 </div> 
 
 
@@ -587,5 +343,15 @@
     <script src="js/navbar.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
+
+	
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/indexMapProps.js"></script>
+    <script type="module" src="js/mapProp.js"></script>
+    <script type="module" src="js/utils/getSelects.js"></script>
+	<script type="module" src="js/utils/filterOnSearch.js"></script>
+	<script type="module" src="js/utils/pagination.js"></script>
+	<script type="module" src="js/Data/ContactInfo.js"></script>
+
   </body>
   </html>
