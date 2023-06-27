@@ -17,6 +17,9 @@ export const AboutInformation = {
 }
 
 export const ContactInformation = {
+    footerAddress: 'RentalProp Spa Apoquindo 6410 Of.605.',
+    footerPhone:'+56 9 5046 9097',
+    footerEmail:'Contacto@rentalprop.cl',
     address: 'RentalProp Spa Apoquindo 6410 Of.605.',
     phone:'+56 9 5046 9097',
     email:'Contacto@rentalprop.cl',
