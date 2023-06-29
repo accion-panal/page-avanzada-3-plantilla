@@ -47,6 +47,8 @@ export default async function renderCall() {
     const response2 = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response2?.UFs[0]?.Valor;
     const ufValueAsNumber = parseFloat(ufValue.replace(",", "."));
+    const ufValueAsNumber2 = parseInt(ufValue.replace('.', '').replace(',', '.'));
+
 
     //todo: Filtros Extras
     const filtroSelect = document.getElementById('FilterPrice');
@@ -102,7 +104,7 @@ export default async function renderCall() {
                         <a href="/property-single.html?${data.id}realtorId=${realtorId}&statusId=${1}&companyId=${companyId}"><h2 class="textLimitClass" style="font-weight: bold; padding-left:40px">${data.title}</h2></a>
                         <div>
                             <p class="text-center" style="font-size: 15px; ">
-                                UF ${clpToUf(data.price, ufValueAsNumber)} - CLP ${parseToCLPCurrency(data?.price)}
+                            ${data.currency.isoCode != 'CLP' ? `UF ${data.price} - CLP ${parseToCLPCurrency(data.price * ufValueAsNumber2)}` : `UF ${clpToUf(data.price, ufValueAsNumber)} - CLP ${parseToCLPCurrency(data?.price)}`}
                             </p>
                             <p class="text-center textLimitDireccion" style="font-size: 15px;">
                             <i class="fa fa-map-marker fa-lg"></i> ${data.address != undefined && data.address != "" && data.address != null ? data.address: "No registra dirección"}, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune: "No registra comuna"} , ${data.city != undefined && data.city != "" && data.city != null ? data.city: "No registra ciudad"}, Chile</p>

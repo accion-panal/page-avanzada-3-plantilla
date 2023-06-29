@@ -8,6 +8,9 @@ export default async function apiDetalleCall(id, statusId, companyId) {
     const response = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response?.UFs[0]?.Valor
     const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
+    const ufValueAsNumber2 = parseInt(ufValue.replace('.', '').replace(',', '.'));
+
+
     let img;
 
     console.log(data)
@@ -62,11 +65,19 @@ export default async function apiDetalleCall(id, statusId, companyId) {
     /* Fin Imagenes en splide */
 
 
-    document.getElementById('uf-prop').innerHTML =
-    `<b style="font-size: 50px;" >UF ${clpToUf(data.price, ufValueAsNumber)}</b>`;
+    if(data.currency.isoCode != 'CLP'){
+        document.getElementById('uf-prop').innerHTML =
+        `<b style="font-size: 50px;" >UF ${data.price}</b>`;
 
-    document.getElementById('clp-prop').innerHTML =
-    `<b style="font-size: 50px;" >CLP ${parseToCLPCurrency(data?.price)}</b>`;
+        document.getElementById('clp-prop').innerHTML =
+        `<b style="font-size: 50px;" >CLP ${parseToCLPCurrency(data.price * ufValueAsNumber2)}</b>`;
+    }else {
+        document.getElementById('uf-prop').innerHTML =
+        `<b style="font-size: 50px;" >UF ${clpToUf(data.price, ufValueAsNumber)}</b>`;
+
+        document.getElementById('clp-prop').innerHTML =
+        `<b style="font-size: 50px;" >CLP ${parseToCLPCurrency(data?.price)}</b>`;
+    }
 
 
     /* Descripcion/Caracteristicas */
@@ -98,7 +109,7 @@ export default async function apiDetalleCall(id, statusId, companyId) {
 								<div class="col-6 p-2" style="min-width: 126px">
 									<div style="font-size: 30px;">
 										<i class="fa fa-car  " style="font-size: 40px;padding-left: 6px;padding-right: 6px;"></i>
-										${data.covered_parking_lots != null && data.covered_parking_lots != undefined && data.covered_parking_lots != "" ? data.covered_parking_lots : "0"}
+										${data.coveredParkingLots != null && data.coveredParkingLots != undefined && data.coveredParkingLots != "" ? data.coveredParkingLots : "0"}
 									</div>
 								</div>
 							</div>`;
