@@ -6,6 +6,7 @@ export const getProperties = async(page, limit,CodigoUsuarioMaestro, statusId, c
 }
 
 
+
 export const getPropertiesForId = async( id ,  statusId, companyId) => {
   let data = await api.get(`properties/${id}?&statusId=${statusId}&companyId=${companyId}`);
   return data;

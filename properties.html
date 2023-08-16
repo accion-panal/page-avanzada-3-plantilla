@@ -212,7 +212,7 @@
 
 <!--  Botones Grilla - Carta - Mapa             -->
 
-	<div class="section px-0 px-md-5" style="padding-bottom: 0; " data-aos="fade-up">
+	<div class="section px-0 px-md-5" style="padding-bottom: 0;align-items: center; " data-aos="fade-up">
 		<div class="row align-items-center py-1 ">
 			<div class="col-12 float-start " style="padding-left: 10%;">
 				<h1 style="font-size: 50px;font-weight: bold;color: #4d4d4d;">PROPIEDADES</h1>
@@ -228,17 +228,29 @@
 
 				</div>
 			</div>
-			<div class="col-lg-6 text-start" style="padding-top: 10px;" id="totalItems">
+			<div class="col-lg-4 text-start" style="padding-top: 10px;" id="totalItems">
 				
 			</div>
-			<div class="col-lg-6 text-start " style="padding-top: 10px ;">
-				<div class="row align-items-center" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+			<div class="col-lg-5 text-start " style="padding-top: 10px ;">
+				<div class="row align-items-center">
 					<div class="col-4 text-center">Orden por:</div>
 					<div class="col-8 text-center">
 						<select id="FilterPrice" class="form-select border">
 							<option disabled selected>Seleccione una opción</option>
 							<option value="MenorMayor">Precio de menor a mayor</option>
 							<option value="MayorMenor">Precio de mayor a menor</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="row align-items-center" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+					<div class="col-lg-4 text-center">Ver : </div>
+					<div class="col-lg-8 text-center">
+						<select id="FilterLimit" class="form-select border">
+							<option value="3">3 propiedades</option>
+							<option value="6" selected>6 propiedades</option>
+							<option value="9">9 propiedades</option>
 						</select>
 					</div>
 				</div>

@@ -10983,11 +10983,14 @@ nav[aria-label="breadcrumb"] li:before {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+    height: 33px;
+    transition: height 1s ease  !important;
     
   }
   
   .textLimitClass:hover{
     display: block !important;
+    height: 230px;
   }
 
   .textLimitDireccion{

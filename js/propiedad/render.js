@@ -77,6 +77,40 @@ export default async function renderCall() {
         showItems();
     }
 
+
+    //todo: Cantidad de limite en las propiedades
+    const filtroLimit = document.getElementById('FilterLimit');
+    filtroLimit.addEventListener('change', handleLimitChange);
+    async function handleLimitChange() {
+        try {
+            //* el segundo digito es el limit
+            response = await getProperties(1, filtroLimit.value, CodigoUsuarioMaestro, 1, companyId, realtorId);
+
+            //* setear variables
+            let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+            //* Guardar vaariables en el localStorage
+            localStorage.setItem('globalResponse', JSON.stringify(response));
+            localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+            localStorage.setItem('countPage', JSON.stringify(1));
+            localStorage.setItem('LimitProperties', filtroLimit.value);
+            
+            //* Actualizar variables
+            data = response.data;
+            //* llamar funciones para actualizar visualmente.
+            data = data.map(item => {
+                // Reemplazar "\\" por "//" en la propiedad "image"
+                item.image = item.image.replace(/\\/g, "//");
+                return item;
+            });
+            
+            paginationCall();
+            showItems();
+        } catch (error) {
+            console.error('Error in handleLimitChange:', error);
+        }
+        
+    }
+
     //todo: LLamamos a la funcion que muestra las cards
     showItems();
 
@@ -101,7 +135,7 @@ export default async function renderCall() {
                         ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid img-prop">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid img-prop">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid img-prop">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid img-prop">`}
                     </a>
                     <div class="property-content text-start" style="padding: 10px 10px 10px 10px;">
-                        <a href="/property-single.html?${data.id}realtorId=${realtorId}&statusId=${1}&companyId=${companyId}"><h2 class="textLimitClass" style="font-weight: bold; padding-left:40px">${data.title}</h2></a>
+                        <a href="/property-single.html?${data.id}&realtorId=${realtorId}&statusId=${1}&companyId=${companyId}"><h2 class="textLimitClass" style="font-weight: bold; padding-left:40px">${data.title}</h2></a>
                         <div>
                             <p class="text-center" style="font-size: 15px; ">
                             ${data.currency.isoCode != 'CLP' ? `UF ${data.price} - CLP ${parseToCLPCurrency(data.price * ufValueAsNumber2)}` : `UF ${clpToUf(data.price, ufValueAsNumber)} - CLP ${parseToCLPCurrency(data?.price)}`}

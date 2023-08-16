@@ -5,4 +5,4 @@ const url = window.location.search;
 const value = url.match(/\d+/)[0];
 const {companyId} = PropertyData;
 
-apiDetalleCall(value, 1, companyId);
+apiDetalleCall(value,1, companyId);
