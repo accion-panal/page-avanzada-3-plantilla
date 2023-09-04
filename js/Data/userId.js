@@ -58,3 +58,9 @@ export const servicesInformation = {
     }
 ]
 }
+export const SocialLink = {
+    facebookLink :'',
+    instagramLink: '',
+    twitterLink: '',
+    linkedinLink: '',
+}
