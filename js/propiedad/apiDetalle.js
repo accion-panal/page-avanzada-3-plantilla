@@ -2,16 +2,16 @@ import { getPropertiesForId } from "../services/PropertiesServices.js";
 import ExchangeRateServices from "../services/ExchangeRateServices.js";
 import { parseToCLPCurrency, clpToUf } from '../utils/getExchangeRate.js';
 
-export default async function apiDetalleCall(id, statusId, companyId) {
+export default async function apiDetalleCall(id,realtorId ,statusId, companyId) {
 
-    let { data } = await getPropertiesForId(id, statusId, companyId);
+    let { data } = await getPropertiesForId(id,realtorId, statusId, companyId);
     const response = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response?.UFs[0]?.Valor
     const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
     const ufValueAsNumber2 = parseInt(ufValue.replace('.', '').replace(',', '.'));
 
 
-    let img;
+    let img = "";
 
     console.log(data)
     /* INFORMACION REALTOR */
@@ -48,7 +48,7 @@ export default async function apiDetalleCall(id, statusId, companyId) {
         
     /* Imagenes en splide */
     data.images.forEach((images, index) => {img += ` 
-        <li class="splide__slide ${ index == 0 ? "active" : ""}"> 
+        <li class="splide__slide ${ index === 0 ? "active" : ""}"> 
             <img src="${images.replace(/\\/g, "//") != undefined ? images.replace(/\\/g, "//")  : 'Ir a'}" style="height:600px;width:100%;"/>
         </li>	
     `})

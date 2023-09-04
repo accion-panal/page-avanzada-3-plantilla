@@ -22,11 +22,6 @@ if(firstName.value==='' || email.value==='' || phone.value==='' || subject.value
     
   }
 
-
-
-
-
-
 fetch(`https://formsubmit.co/ajax/${realtorMail}`, {
   method: "POST",
   headers: { 
@@ -40,6 +35,8 @@ fetch(`https://formsubmit.co/ajax/${realtorMail}`, {
     Telefono: phone.value,
     Sujeto: subject.value,
     Mensaje: message.value,
+    '_Subject': "De: Página web"
+
   })
 })
   .then(response => response.json())

@@ -460,6 +460,10 @@ progress {
   padding-left: 0;
   list-style: none; }
 
+  .list-unstyled li a{
+    
+    text-decoration: none; }
+  
 .list-inline {
   padding-left: 0;
   list-style: none; }
@@ -10983,14 +10987,14 @@ nav[aria-label="breadcrumb"] li:before {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
     overflow: hidden;
-    height: 33px;
-    transition: height 1s ease  !important;
-    
+    transition: height 1s ease !important;
+    height: 80px;
   }
   
   .textLimitClass:hover{
     display: block !important;
-    height: 230px;
+    height: 190px;
+
   }
 
   .textLimitDireccion{
@@ -11165,4 +11169,9 @@ nav[aria-label="breadcrumb"] li:before {
       width: 100% !important;
     
   }
+}
+
+.initilMap{
+  height: 0; 
+  overflow: hidden;
 }

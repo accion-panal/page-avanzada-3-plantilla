@@ -34,13 +34,13 @@ document.getElementById('typeOfProperty').addEventListener('change' ,(element) =
 })
 
 //! Region
-document.getElementById("region").addEventListener( "change", (element) => {
+document.getElementById("regionTextId").addEventListener( "change", (element) => {
     region = element.target.value;
     console.log('id region: ',region);
 })
 
 //! Comuna
-document.getElementById("commune").addEventListener( "change", (element) => {
+document.getElementById("communeTextId").addEventListener( "change", (element) => {
     commune = element.target.value;  
 })
 

@@ -46,7 +46,7 @@ document.getElementById('typeOfProperty').addEventListener('change', (element) =
 })
 
 //! region
-document.getElementById("region").addEventListener("change", (element) => {
+document.getElementById("regionTextId").addEventListener("change", (element) => {
   query.region = element.target.value;
   console.log('region: ',element.target.value)
 
@@ -57,7 +57,7 @@ document.getElementById("region").addEventListener("change", (element) => {
 })
 
 //! comuna
-document.getElementById("commune").addEventListener("change", (element) => {
+document.getElementById("communeTextId").addEventListener("change", (element) => {
   query.commune = element.target.value;
   console.log('commune: ',element.target.value)
 })
