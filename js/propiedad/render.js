@@ -31,17 +31,17 @@ export default async function renderCall() {
 
         let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
         localStorage.setItem('LimitPages', JSON.stringify(maxPage));
-        console.log('max-page: ',maxPage);
+        // console.log('max-page: ',maxPage);
         localStorage.setItem('countPage', JSON.stringify(1));
         paginationCall();
     }
 
     //! console log para saber el contenido del response despues del if
-    console.log('response in render.js',response)
+    // console.log('response in render.js',response)
 
     //* Guardamos el data del response en una variable data
     let data = response.data;
-    console.log('data in render.js',data)
+    // console.log('data in render.js',data)
 
     //* Cositas para el uf
     const response2 = await ExchangeRateServices.getExchangeRateUF();
@@ -54,12 +54,12 @@ export default async function renderCall() {
     const filtroSelect = document.getElementById('FilterPrice');
     filtroSelect.addEventListener('change', handleFilterChange);
     function handleFilterChange() {
-        console.log('=========== handleFilterChange ===========')
+        // console.log('=========== handleFilterChange ===========')
         //* Se rescata el value del select
         const selectedValue = filtroSelect.value;
-        console.log(selectedValue);
-        console.log(data);
-        console.log(response);
+        // console.log(selectedValue);
+        // console.log(data);
+        // console.log(response);
 
         if (selectedValue === 'MayorMenor') {
           //* la data ordenada se guarda en response.data

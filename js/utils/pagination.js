@@ -10,7 +10,7 @@ export default async function paginationCall() {
     let response;
     let data;
 
-    let prefixUrl = 'https://aulen.partnersadvisers.info/properties?';
+    let prefixUrl = 'https://pages-api.panal.house/properties?';
 
     let storedCountPage = localStorage.getItem('countPage');
     let maxPage;
@@ -176,16 +176,28 @@ export default async function paginationCall() {
         pagination.innerHTML = `
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item" id="prevPageId">
-                        <button id='prevButton' class="page-link" href="#">Anterior</button>
+                    <li class="page-item" >
+                        <button id='' class="page-link" href="#" >Anterior</button>
                     </li>
                     <li class="page-item disabled"><a id='current-pagination' class="page-link" href="#">1</a></li>
-                    <li class="page-item" id="nextPageId">
-                        <button id='nextButton' class="page-link" href="#">Siguiente</button>
+                    <li class="page-item" disabled>
+                        <button id='' class="page-link" href="#">Siguiente</button>
                     </li>
                 </ul>
             </nav>
     `};
+
+//     <nav aria-label="Page navigation">
+//     <ul class="pagination justify-content-center">
+//         <li class="page-item" id="prevPageId">
+//             <button id='prevButton' class="page-link" href="#">Anterior</button>
+//         </li>
+//         <li class="page-item disabled"><a id='current-pagination' class="page-link" href="#">1</a></li>
+//         <li class="page-item" id="nextPageId">
+//             <button id='nextButton' class="page-link" href="#">Siguiente</button>
+//         </li>
+//     </ul>
+// </nav>
 
 
     let currentPaginations = document.getElementById("current-pagination");

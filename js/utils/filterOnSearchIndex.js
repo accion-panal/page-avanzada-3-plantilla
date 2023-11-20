@@ -36,50 +36,50 @@ document.getElementById('flexRadioDefault2').addEventListener('change', mostrarV
 document.getElementById('flexRadioDefault3').addEventListener('change', mostrarValor);
 function mostrarValor(event) {
   query.operationType = event.target.value;
-  console.log(query.operationType);
+  // console.log(query.operationType);
 }
 
 //! tipo de propiedad
 document.getElementById('typeOfProperty').addEventListener('change', (element) => {
   query.typeOfProperty = element.target.value;
-  console.log('tipo de propiedad: ',element.target.value)
+  // console.log('tipo de propiedad: ',element.target.value)
 })
 
 //! region
 document.getElementById("regionTextId").addEventListener("change", (element) => {
   query.region = element.target.value;
-  console.log('region: ',element.target.value)
+  // console.log('region: ',element.target.value)
 
   if(element.target.value == 0){
     query.commune = null;
-    console.log('commune:', query.commune)
+    // console.log('commune:', query.commune)
   }
 })
 
 //! comuna
 document.getElementById("communeTextId").addEventListener("change", (element) => {
   query.commune = element.target.value;
-  console.log('commune: ',element.target.value)
+  // console.log('commune: ',element.target.value)
 })
 
 //! habitaciones
 document.getElementById("bedrooms").addEventListener("change", (element) => {
   query.bedrooms = element.target.value;
-  console.log('bedrooms: ',element.target.value)
+  // console.log('bedrooms: ',element.target.value)
 
 })
 
 //! Estacionamientos
 document.getElementById("covered_parking_lots").addEventListener("change", (element) => {
   query.covered_parking_lots = element.target.value;
-  console.log('covered_parking_lots: ',element.target.value)
+  // console.log('covered_parking_lots: ',element.target.value)
 
 })
 
 //! baños
 document.getElementById("bathrooms").addEventListener("change", (element) => {
   query.bathrooms = element.target.value;
-  console.log('bathrooms: ',element.target.value)
+  // console.log('bathrooms: ',element.target.value)
 })
 
 //! tipo de precio
@@ -87,25 +87,25 @@ document.getElementById('inlineRadio1').addEventListener('change', mostrarValorT
 document.getElementById('inlineRadio2').addEventListener('change', mostrarValorTypePrice);
 function mostrarValorTypePrice(event) {
   query.typePrice = event.target.value;
-  console.log(query.typePrice);
+  // console.log(query.typePrice);
 }
 
 //! precio minimo
 document.getElementById("min_price").addEventListener("change", (element) => {
   // return element.target.value;
   query.min_price = element.target.value;
-  console.log('min_price: ',element.target.value)
+  // console.log('min_price: ',element.target.value)
 })
 
 //! precio maximo
 document.getElementById("max_price").addEventListener("change", (element) => {
   query.max_price = element.target.value;
-  console.log('max_price: ',element.target.value)
+  // console.log('max_price: ',element.target.value)
 })
 
 
 document.getElementById("buscar")?.addEventListener("click", async () => {
-  console.log(query);
+  // console.log(query);
 
   /* window.open(
     window.location.origin +

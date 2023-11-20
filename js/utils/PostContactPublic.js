@@ -52,7 +52,7 @@ form.addEventListener('submit', function (e) {
         //   redirect: 'follow'
     };
 
-    fetch("https://aulen.partnersadvisers.info/contact/2/", requestOptions)
+    fetch("https://pages-api.panal.house/contact/2/", requestOptions)
         .then(response => response.text())
         .then((result) => {
             //result: 'ok' + message: 'Mensaje guardado'

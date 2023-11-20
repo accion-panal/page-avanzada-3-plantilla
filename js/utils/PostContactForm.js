@@ -52,7 +52,7 @@ let requestOptions = {
 //   redirect: 'follow'
 };
  
-fetch("https://aulen.partnersadvisers.info/contact/", requestOptions)
+fetch("https://pages-api.panal.house/contact/", requestOptions)
   .then(response => response.text())
   .then((result) => {
     console.log(result)

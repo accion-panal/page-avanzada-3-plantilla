@@ -79,8 +79,8 @@ document.getElementById("max_price").addEventListener( "change", (element) => {
 
 //TODO: Al hacer click en buscar, Mostrara todos los valores guardados
 document.getElementById('buscar2')?.addEventListener('click', async() => {
-    console.log('=======================')
-    console.log('FilterOnSearch')
+    // console.log('=======================')
+    // console.log('FilterOnSearch')
     //* mostrar spinner loading
     document.getElementById("buscar2").innerHTML = `<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>`;
 
@@ -120,10 +120,10 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
 
     //* Generar url
     let urlFilters = operation+typeOfProperty+nameRegion+commune+bedrooms+bathrooms+covered_parking_lots+minPrice+maxPrice;
-    console.log(urlFilters);
+    // console.log(urlFilters);
     //* Hacer peticion a la api     | el segundo digito es el limit
     let response = await getPropertiesForCustomUrl(1,limitDataApi.limit,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
-    console.log(response);
+    // console.log(response);
     //* Guardar el response en el globalResponse
     localStorage.setItem('globalResponse', JSON.stringify(response));
 
